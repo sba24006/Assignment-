@@ -8,64 +8,69 @@ package assignment;
 import java.util.HashSet;
 import java.util.Scanner;
 
-/**
- *
- * @author user
- */
 public class Assignment {
 
     /**
-     * @param args the command line arguments
+     * Main method: Entry point of the program
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-       
-         Scanner scanner = new Scanner(System.in);
+        // Create a Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
 
-        // Input: size of the array
+        // Prompt the user to enter the size of the array
         System.out.print("Enter the size of the array: ");
         int size = scanner.nextInt();
 
-        // Validate that the size of the array is positive
+        // Validate the size to ensure it's a positive number
         if (size <= 0) {
             System.out.println("Invalid size. Please enter a positive integer.");
             return; // Exit the program if the size is invalid
         }
 
-        // Input: elements of the array
+        // Create an array to store the elements entered by the user
         System.out.println("Enter the elements of the array: ");
         int[] array = new int[size];
+
+        // Loop to read each element of the array from the user
         for (int i = 0; i < size; i++) {
-            array[i] = scanner.nextInt(); // Read each element into the array
+            array[i] = scanner.nextInt(); // Store the input in the array
         }
 
-        // Find the first repeated element using a helper method
+        // Call the helper method to find the first repeated element in the array
         int firstRepeated = findFirstRepeated(array);
 
-        // Output the result based on the value returned by the helper method
+        // Display the result to the user
         if (firstRepeated == -1) {
+            // If no repeated element is found
             System.out.println("No repeated elements found.");
         } else {
+            // If a repeated element is found, display it
             System.out.println("First repeated element: " + firstRepeated);
         }
     }
-        
-            // Helper method to find the first repeated element in the array
+
+    /**
+     * Helper method to find the first repeated element in the array
+     * 
+     * @param array the input array to search for repeated elements
+     * @return the first repeated element, or -1 if no repeated element is found
+     */
     private static int findFirstRepeated(int[] array) {
-        // Use a HashSet to keep track of elements that have been seen
+        // Create a HashSet to keep track of elements we have seen so far
         HashSet<Integer> seen = new HashSet<>();
 
-        // Iterate through each element in the array
+        // Loop through each element in the array
         for (int value : array) {
-            // If the current value is already in the set, it is the first repeated element
+            // Check if the current value already exists in the set
             if (seen.contains(value)) {
+                // If it exists, this is the first repeated element
                 return value; // Return the repeated element immediately
             }
-            // Otherwise, add the current value to the set
+            // If it doesn't exist in the set, add it to the set
             seen.add(value);
         }
 
-        // If no repeated elements are found, return -1
+        // If the loop finishes and no repeated elements were found, return -1
         return -1;
     }
 }
