@@ -1,8 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
-
-     https://github.com/sba24006/Assignment-
+         https://github.com/sba24006/Assignment-/blob/master/src/assignment/Assignment.java
  */
 package assignment;
 
